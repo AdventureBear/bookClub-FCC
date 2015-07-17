@@ -1,0 +1,34 @@
+div(ng-include='"components/navbar/navbar.html"')
+header#banner.hero-unit
+  .container
+    h1 'Show Us Your Books!
+    p.lead Track and Trade nuggets of wisdom.
+    img(src='assets/images/books_transparent.gif', width=100, alt='I\'m Yeoman')
+
+
+.container
+  .row
+    .col-md-12.col-lg-12
+      h1.page-header Your Books:
+      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='book in awesomeBooks')
+        li
+          a(href='#', tooltip='{{book.info}}')
+            | {{book.name}}
+            button.close(type='button', ng-click='deleteBook(book)') ×
+
+  form.thing-form
+    label Syncs in realtime across clients
+    p.input-group
+      input.form-control(type='text', placeholder='Add a new book here.', ng-model='newBook')
+      span.input-group-btn
+        button.btn.btn-primary(type='submit', ng-click='addBook()') Add New
+
+
+footer.footer
+  .container
+    p
+      | Angular Fullstack v2.0.13
+      = ' | '
+      a(href='https://twitter.com/tyhenkel') @tyhenkel
+      = ' | '
+      a(href='https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open') Issues
